@@ -93,7 +93,7 @@ def get_danmu_by_mat(vid, cna, mat: int, comments: list):
         comment = item["content"]
         c_int = json.loads(item["propertis"])["color"]
         if c_int.__class__ == str:
-            c_int = int(c_int)
+            c_int = int(c_int.strip('"'))
         color = hex(c_int)[2:].zfill(6)
         timepoint = item["playat"] / 1000
         comments.append([comment, [color], timepoint])
